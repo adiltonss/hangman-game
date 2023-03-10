@@ -1,0 +1,424 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Manrope", "Montserrat", 'Courier New', Courier, monospace;
+    color: #ccc;    
+}
+
+body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background: rgb(15,15,15);
+    background: radial-gradient(circle, rgba(15,15,15,1) 0%, rgba(14,14,14,1) 22%, rgba(6,6,6,1) 100%);
+}
+
+body > div{
+    background-color: transparent;
+}
+
+.stopwatch {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100px;
+    top: 10px;
+    right: 10px;
+    border: thin solid #ccc;
+    border-radius: 10px;
+    &__time {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 26px;
+    }
+}  
+
+.word-wrapper{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    .word-field{
+        display: flex;
+        color: #ccc;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .word-field > div{
+        width: 50px;
+        height: 50px;
+        border-bottom: 2px solid #ccc;
+        margin: 0 10px;
+        font-size: 40px;
+        text-align: center;
+    }
+
+}
+
+.give-a-try, .finish-game{
+    color: #000;
+    background-color: #00ffff;
+    border: none;
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.give-a-try:hover, .finish-game:hover{
+    background-color: #00e6e6;
+}
+
+.wrapper {
+    width: 30%;
+    height: 300px;
+    display: block;
+    position: relative;
+    .head {
+        width: 50px;
+        height: 60px;
+        border: 5px solid #fff;
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+        top: 21px;
+        left: 133px;
+        z-index: 1;
+        animation: rock 1s alternate infinite ease-in-out;
+        transform-origin: center bottom;
+      }
+      
+      @keyframes rock {
+        0% {
+          transform: rotate(-10deg);
+        }
+        100% {
+          transform: rotate(10deg);
+        }
+      }
+      
+      .torso {
+        width: 6px;
+        height: 100px;
+        border: 3px solid #fff;
+        display: block;
+        position: absolute;
+        top: 80px;
+        left: 156px;
+      }
+      
+      .leftleg {
+        width: 6px;
+        height: 100px;
+        border: 3px solid #fff;
+        display: block;
+        position: absolute;
+        top: 175px;
+        left: 155px;
+        transform: rotate(12deg);
+        transform-origin: top;
+      }
+      
+      .rightleg {
+        width: 6px;
+        height: 100px;
+        border: 3px solid #fff;
+        display: block;
+        position: absolute;
+        top: 175px;
+        left: 157px;
+        transform: rotate(-12deg);
+        transform-origin: top;
+      }
+      
+      .leftarm {
+        width: 100px;
+        height: 6px;
+        border: 3px solid #fff;
+        display: block;
+        position: absolute;
+        top: 86px;
+        left: 57px;
+        animation: wave 1s alternate infinite ease-in-out;
+        transform-origin: 100%;
+      }
+      
+      @keyframes wave {
+        0% {
+          transform: rotate(-20deg);
+        }
+        100% {
+          transform: rotate(40deg);
+        }
+      }
+      
+      .rightarm {
+        width: 100px;
+        height: 6px;
+        border: 3px solid #fff;
+        display: block;
+        position: absolute;
+        top: 86px;
+        left: 161px;
+        animation: wave2 1s alternate infinite ease-in-out;
+        transform-origin: 0%;
+      }
+      
+      @keyframes wave2 {
+        0% {
+          transform: rotate(20deg);
+        }
+        100% {
+          transform: rotate(-40deg);
+        }
+      }
+      
+      .leftfoot {
+        width: 30px;
+        height: 6px;
+        border: 3px solid #fff;
+        display: block;
+        position: absolute;
+        top: 270px;
+        left: 110px;
+        transform: rotate(8deg);
+      }
+      
+      .rightfoot {
+        width: 30px;
+        height: 6px;
+        border: 3px solid #fff;
+        display: block;
+        position: absolute;
+        top: 270px;
+        left: 178px;
+        transform: rotate(-8deg);
+      }
+}
+
+
+.keyboard-wrapper{
+    width: 50%;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    button{
+        border: thin solid #ccc;
+        border-radius: 5px;
+        background: #333;
+        color: #eee;
+        text-align: center;
+        width: 60px;
+        height: 60px;
+        margin: 3px;
+        cursor: pointer;
+        outline-color: #00e6e6;
+    }
+
+    button:hover{
+        background: #2a2a2a;
+        color: #fff;
+    }
+    button:active{
+        background: #121212;
+        color: #fff;
+    }
+}
+
+
+.removing{
+    animation: removeBodyPart .5s ease-in-out;
+    @keyframes removeBodyPart {
+        0%{
+            transform: rotateX(30deg);
+            background-color: #fff;
+        }
+        20%{
+            transform: rotateX(-30deg);
+        }
+        40%{
+            transform: rotateX(30deg);
+        }
+        60%{
+            transform: rotateX(-30deg);
+        }
+        80%{
+            transform: rotateX(30deg);
+        }
+        100%{
+            transform: rotateX(-10deg);
+        }
+    }
+}
+
+.guess-the-word-modal{
+    position: absolute;
+    width: 450px;
+    height: 250px;
+    background: rgb(15,15,15);
+    border: thin solid #ccc;
+    border-radius: 10px;
+    top: 100px;
+    z-index: 10;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .input-container{
+        width: 90%;
+        margin: 10px 0;    
+    }
+    #guess-word-input{
+        width: 90%;
+        margin: 10px 0;
+        padding: 5px 5px 5px 20px;
+        border-radius: 30px;
+        background-color: #2a2a2a83;
+        border: none;
+    }
+    .hide-modal{
+        position: absolute;
+        font-size: 30px;
+        top: 10px;
+        right: 10px;
+        color: red;
+        background-color: transparent;
+        border:none;    
+    }
+}
+
+.end-game-board{
+    width: 70%;
+    height: 500px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    button{
+        color: #000;
+        background-color: #00ffff;
+        border: none;
+        font-size: 25px;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: #00e6e6;
+    }
+    .plaq{
+        font-size: 40px;
+        font-weight: bold;
+    }
+    div{
+        margin: 20px 0;
+        font-size: 25px;
+        letter-spacing: 2pt;
+    }
+}
+
+#confetti-holder{
+    position: fixed;
+    height: 100vh;
+    pointer-events: none;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+    text-align: center;
+    vertical-align:middle;
+} 
+
+#e0DQ82qcIov1 {
+    height: 150vh;
+    min-width: 600px;
+    min-height: 600px;
+}
+
+.center {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: #FFF8F5;
+    align-items: center;
+    justify-content: center;
+}
+
+#shooter {
+    font-weight: 500;
+    padding: 16px 32px;
+    min-width: 200px;
+    overflow: hidden;
+    cursor: pointer;
+    outline: none;
+    color: rgba(250, 250, 255, 0.9);
+    background-color: #E64784;
+    border: none;
+    border-radius: 48px;
+    box-shadow: 0 4px 8px #F2B3C8;
+    -webkit-tap-highlight-color: transparent;
+    transition: box-shadow 0.1s ease-out;
+}
+
+#shooter:hover {
+    background-color: #F74D8D; 
+    color: rgba(250, 250, 255, 1);
+    box-shadow: 0 8px 16px #F6CEDA;
+}
+
+#shooter:active {
+    box-shadow: 0 0 8px #F6CEDA;
+    transform: translateY(4px);
+    color: #fff;
+}
+
+span.shoot{
+    font-size: 28px;
+    text-align: center;
+    pointer-events: none;
+}
+
+#love {
+    position: fixed;
+    color: rgba(10, 0, 15, 0.48);
+    bottom: 1rem ;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 1.2vw;
+}
+
+#svgator {
+    color: rgba(100, 90, 210, 0.8);
+}
+
+#svgator:hover {
+    color: rgba(100, 90, 230, 1);
+}
+
+a:visited {
+    color: rgba(100, 90, 210, 1);
+}
+
+.hide{
+    display: none;
+}
