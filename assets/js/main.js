@@ -7,6 +7,7 @@ init()
 
 function init(){
     const word = giveAWord()
+    console.log(word);
     startWatch()
     createWordTable(word)
     
@@ -76,7 +77,7 @@ function victory(word){
     confettiShooter()
     qs('.refresh').focus()
     qs('.refresh').addEventListener("click", () => location.reload())
-
+    stopWatch()
 }
 
 function defeat(word){
@@ -93,6 +94,7 @@ function defeat(word){
     `
     qs('.refresh').focus()
     qs('.refresh').addEventListener("click", () => location.reload())
+    stopWatch()
 }
 
 function getPlayerWord(){
@@ -114,11 +116,13 @@ function checkLetters(word, letter){
 
     if(!word.includes(letter)){
         WRAPPER.className += " removing"
-        WRAPPER.addEventListener("animationend", ()=> removeBodyPart(word));
+        WRAPPER.addEventListener("animationend", removeBodyPart)
+        console.log(BODYPARTS);
     }
 
     CLICKCOUNTER++;
     checkSlots(word, getPlayerWord())
+    if(BODYPARTS.length === 1) defeat(word)
 }
 
 function checkSlots(word, playerWord){
@@ -131,7 +135,6 @@ function removeBodyPart(word) {
     WRAPPER.removeChild(qs(`.${BODYPARTS[BODYPARTS.length - 1]}`))
     BODYPARTS.splice(-1)
     WRAPPER.classList.remove("removing");
-    if(BODYPARTS.length === 0) defeat(word)
 }
 
 function qs(selector, parent = document){
