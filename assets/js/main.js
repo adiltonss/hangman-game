@@ -7,7 +7,6 @@ init()
 
 function init(){
     const word = giveAWord()
-    console.log(word);
     startWatch()
     createWordTable(word)
     
@@ -117,7 +116,6 @@ function checkLetters(word, letter){
     if(!word.includes(letter)){
         WRAPPER.className += " removing"
         WRAPPER.addEventListener("animationend", removeBodyPart)
-        console.log(BODYPARTS);
     }
 
     CLICKCOUNTER++;
